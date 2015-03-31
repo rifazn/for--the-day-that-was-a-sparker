@@ -1,0 +1,94 @@
+<!doctype html>
+
+<html>
+    <head>
+    <title>What did you think? :P</title>
+    <style>
+
+
+
+@media screen and (max-device-width: 800px) {
+
+body { background: url(polina.jpg) #000 no-repeat center center fixed; }
+
+#bgvid { display: none; }
+
+}
+
+          
+
+video#bgvid { 
+
+position: fixed; right: 0; bottom: 0;
+
+min-width: 100%; min-height: 100%;
+
+width: auto; height: auto; z-index: -100;
+
+
+background-size: cover; 
+
+}
+
+video#bgvid { transition: 1s opacity; }
+
+.stopfade { opacity: .5; }
+    </style>
+    </head>
+
+    <body>
+        <video controls autoplay poster="atlanta-placeholder.jpg"  style="width: 50%; height: auto;" id="bgvid">
+
+        <source src="https://copy.com/K6QV3n4O7ICzlL00/theday_video1_x264.mp4?download=1" type="video/mp4">
+        </video>
+        <button id="vidpause">Pause</button>
+
+
+        <script>
+             
+
+var vid = document.getElementById("bgvid");
+
+var pauseButton = document.getElementById("vidpause");
+
+function vidFade() {
+
+vid.classList.add("stopfade");
+
+}
+
+vid.addEventListener('ended', function() {
+
+// only functional if "loop" is removed
+
+vid.pause();
+
+// to capture IE10
+
+vidFade();
+
+});
+
+pauseButton.addEventListener("click", function() {
+
+vid.classList.toggle("stopfade");
+
+if (vid.paused) {
+
+vid.play();
+
+pauseButton.innerHTML = "Pause";
+
+} else {
+
+vid.pause();
+
+ pauseButton.innerHTML = "Paused";
+
+}
+
+})
+
+</script>
+    </body>
+</html>
